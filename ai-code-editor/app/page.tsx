@@ -4,9 +4,14 @@ export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white p-8">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold tracking-tight mb-3">
-          Welcome to Your Coding Platform
-        </h1>
+        <h1 className="text-7xl font-extrabold tracking-tight mb-3
+        bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+        bg-[length:200%_auto]
+        bg-clip-text text-transparent
+        animate-gradient
+        ">
+  CodeCraft X
+</h1>
         <p className="text-lg text-gray-400">
           Choose your path below to get started.
         </p>

@@ -16,6 +16,18 @@ interface CodeEditorProps {
   onChange: (newValue: string) => void;
 }
 
+// --- NEW ---
+// Custom theme to increase font size
+const editorFontTheme = EditorView.theme({
+  '&': {
+    fontSize: '16px', // Sets the font size for the editor content
+  },
+  '.cm-gutters': {
+    fontSize: '16px', // Sets the font size for the line numbers
+  }
+});
+
+
 const CodeEditor: React.FC<CodeEditorProps> = ({ language, value, onChange }) => {
   const editorRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
@@ -23,9 +35,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ language, value, onChange }) =>
   useEffect(() => {
     if (!editorRef.current) return;
 
-    // This function sets up the editor
     const setupEditor = () => {
-      // Destroy the previous editor instance if it exists
       if (viewRef.current) {
         viewRef.current.destroy();
       }
@@ -36,9 +46,10 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ language, value, onChange }) =>
         doc: value,
         extensions: [
           basicSetup,
-          keymap.of(defaultKeymap), // <-- This is the corrected line
+          keymap.of(defaultKeymap),
           languageExtension,
-          oneDark, // Theme
+          oneDark,
+          editorFontTheme, // <-- ADDED: Apply our custom font size theme
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
               onChange(update.state.doc.toString());
@@ -57,15 +68,13 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ language, value, onChange }) =>
 
     setupEditor();
 
-    // Cleanup on component unmount
     return () => {
       if (viewRef.current) {
         viewRef.current.destroy();
       }
     };
-  }, [language]); // Re-create the editor only when the language changes
+  }, [language]);
 
-  // This effect synchronizes the external `value` prop with the editor's content.
   useEffect(() => {
     if (viewRef.current && value !== viewRef.current.state.doc.toString()) {
       viewRef.current.dispatch({

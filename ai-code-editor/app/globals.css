@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 1. Define the keyframes (this is standard CSS) */
+@keyframes gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* 2. Create a utility class that uses the animation */
+@layer utilities {
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
+}
