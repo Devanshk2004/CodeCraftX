@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 
-// Mapping our language names to Judge0's language IDs
 const languageMap = {
   python: 71,
   cpp: 54,
@@ -47,13 +46,12 @@ export async function POST(request: Request) {
 
     const data = await response.json();
 
-    // Determine the output
     let output = '';
-    if (data.status.id === 3) { // Status ID 3 means "Accepted" (ran successfully)
+    if (data.status.id === 3) { 
       output = data.stdout || '';
-    } else if (data.status.id === 6) { // Compilation Error
+    } else if (data.status.id === 6) { 
       output = data.compile_output || 'Compilation Error';
-    } else { // Other errors (Runtime Error, Time Limit Exceeded, etc.)
+    } else { 
       output = data.stderr || data.status.description;
     }
 
