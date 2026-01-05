@@ -9,21 +9,22 @@ import { cpp } from '@codemirror/lang-cpp';
 import { basicSetup } from 'codemirror';
 import { oneDark } from '@codemirror/theme-one-dark';
 
-// Define the props interface
 interface CodeEditorProps {
   language: 'python' | 'cpp';
   value: string;
   onChange: (newValue: string) => void;
 }
 
-// --- NEW ---
-// Custom theme to increase font size
 const editorFontTheme = EditorView.theme({
   '&': {
-    fontSize: '16px', // Sets the font size for the editor content
+    fontSize: '16px',
+    height: '100%',   
   },
   '.cm-gutters': {
-    fontSize: '16px', // Sets the font size for the line numbers
+    fontSize: '16px', 
+  },
+  '.cm-scroller': {
+    overflow: 'auto',
   }
 });
 
@@ -49,7 +50,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ language, value, onChange }) =>
           keymap.of(defaultKeymap),
           languageExtension,
           oneDark,
-          editorFontTheme, // <-- ADDED: Apply our custom font size theme
+          editorFontTheme, // <-- Apply our updated theme
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
               onChange(update.state.doc.toString());
