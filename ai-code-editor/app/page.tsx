@@ -18,11 +18,11 @@ export default function HomePage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-        {/* AI Code Editor Card - NOW LINKS TO /selection */}
+        {/* AI Code Editor Card */}
         <Link href="/selection">
-          <div className="group rounded-xl border border-white/10 bg-gray-800/50 p-8 h-full flex flex-col justify-between hover:bg-gray-800/80 transition-all duration-300 cursor-pointer">
+          <div className="group rounded-xl border border-white/10 bg-gray-800/50 p-8 h-full flex flex-col justify-between hover:bg-gray-800/80 hover:border-sky-500/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-sky-500/20">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-3">
+              <h2 className="text-3xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
                 AI Code Editor
               </h2>
               <p className="text-gray-400">
@@ -36,20 +36,23 @@ export default function HomePage() {
           </div>
         </Link>
 
-        {/* DSA Topics Card */}
-        <div className="group rounded-xl border border-white/10 bg-gray-800/50 p-8 h-full flex flex-col justify-between hover:bg-gray-800/80 transition-all duration-300 cursor-not-allowed opacity-60">
-           <div>
-              <h2 className="text-3xl font-bold text-white mb-3">
+        {/* DSA Topics Card - NOW ACTIVE */}
+        <Link href="/dsa">
+          <div className="group rounded-xl border border-white/10 bg-gray-800/50 p-8 h-full flex flex-col justify-between hover:bg-gray-800/80 hover:border-emerald-500/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-emerald-500/20">
+             <div>
+              <h2 className="text-3xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
                 DSA Topics
               </h2>
               <p className="text-gray-400">
-                Explore fundamental Data Structures and Algorithms concepts. (Coming Soon!)
+                Master Data Structures and Algorithms with structured roadmaps and practice questions.
               </p>
             </div>
-            <div className="mt-6 text-gray-500 font-semibold">
-              Coming Soon
+            <div className="mt-6 text-emerald-400 font-semibold flex items-center">
+              Start Learning
+              <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
             </div>
-        </div>
+          </div>
+        </Link>
       </div>
     </main>
   );
