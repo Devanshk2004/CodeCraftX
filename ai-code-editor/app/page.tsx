@@ -10,27 +10,27 @@ export default function HomePage() {
         bg-clip-text text-transparent
         animate-gradient
         ">
-  CodeCraft X
-</h1>
+          CodeCraft X
+        </h1>
         <p className="text-lg text-gray-400">
           Choose your path below to get started.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-        {/* AI Code Editor Card */}
-        <Link href="/editor">
+        {/* AI Code Editor Card - NOW LINKS TO /selection */}
+        <Link href="/selection">
           <div className="group rounded-xl border border-white/10 bg-gray-800/50 p-8 h-full flex flex-col justify-between hover:bg-gray-800/80 transition-all duration-300 cursor-pointer">
             <div>
               <h2 className="text-3xl font-bold text-white mb-3">
                 AI Code Editor
               </h2>
               <p className="text-gray-400">
-                A powerful, AI-assisted editor to write, test, and debug your code in C++, Python, and more.
+                Access powerful tools to write code or generate unique programming problems from your ideas.
               </p>
             </div>
             <div className="mt-6 text-sky-400 font-semibold flex items-center">
-              Launch Editor
+              Enter Platform
               <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
             </div>
           </div>
