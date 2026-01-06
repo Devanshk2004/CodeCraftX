@@ -11,7 +11,6 @@ export default function TopicPage() {
   const subtopicId = params.subtopicId as string;
 
   const topicData = contentMap[topicId]?.[subtopicId];
-
   const displayTitle = topicData?.title || `Part ${subtopicId}`;
   const displayTopic = topicId.charAt(0).toUpperCase() + topicId.slice(1);
 
@@ -90,9 +89,12 @@ export default function TopicPage() {
             <p className="text-gray-400 text-sm mb-6">
               Test your knowledge on <strong>{displayTitle}</strong> with curated problems.
             </p>
-            <button className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-emerald-500/20">
-              Solve Problems 🚀
-            </button>
+            {/* UPDATED LINK */}
+            <Link href={`/dsa/${topicId}/${subtopicId}/practice`}>
+              <button className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-emerald-500/20">
+                Solve Problems 🚀
+              </button>
+            </Link>
           </div>
 
         </div>
